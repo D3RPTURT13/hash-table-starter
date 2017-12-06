@@ -15,15 +15,13 @@ public class HashTable {
 	
 	/*
 	 * This is the hash function.
+	 * For this hash function, return 0 if key is the empty string.
+	 * Otherwise, calculate the sum of the ASCII values of the characters in key
+	 * and find the remainder when divided by 8 (remember mod divisision %).
+	 * Check the java API for String methods that may be helpful.
 	 */
 	private int hash(String key) {
-		int total = 0;
-		if (!key.equals("")) {
-			for (int i = 0; i < key.length(); i++) {
-				total += key.codePointAt(i);
-			}
-		}
-		return total % 8;
+		// your code here
 	}
 	
 	/*
@@ -32,10 +30,7 @@ public class HashTable {
 	 * at the head of each linked list for ease of implementation.
 	 */
 	public void insert(String key) {
-		int index = hash(key);
-		Node newNode = new Node(key);
-		newNode.next = map[index];
-		map[index] = newNode;
+		// your code here
 	}
 	
 	/*
@@ -43,17 +38,7 @@ public class HashTable {
 	 * hash table, and false otherwise.
 	 */
 	public boolean search(String key) {
-		int index = hash(key);
-		boolean found = false;
-		Node pointer = map[index];
-		while (pointer != null) {
-			if (key.equals(pointer.record)) {
-				found = true;
-				break;
-			}
-			pointer = pointer.next;
-		}
-		return found;
+		// your code here
 	}
 	
 	/*
@@ -66,40 +51,14 @@ public class HashTable {
 	 * 1: Nicholas Mary Kim Jack
 	 */
 	public void printTable() {
-		Node pointer;
-		for (int i = 0; i < tableSize; i++ ) {
-			pointer = map[i];
-			System.out.print(i + ": ");
-			while (pointer != null) {
-				System.out.print(pointer.record + " ");
-				pointer = pointer.next;
-			}
-			System.out.println();
-		}
+		// your code here
 	}
 	
 	/*
 	 * This method should delete ALL nodes matching the search key.
 	 */
 	public void delete(String key) {
-		int index = hash(key);
-		if (map[index] != null) {
-			boolean headElement = key.equals(map[index].record);
-			while (headElement) {
-				map[index] = map[index].next;
-				headElement = key.equals(map[index].record);
-			}
-		}
-		Node pointer = map[index];
-		Node back = pointer;
-		while (pointer != null) {
-			if (key.equals(pointer.record)) {
-				back.next = pointer.next;
-			} else {
-				back = pointer;
-			}
-			pointer = pointer.next;
-		}
+		// your code here
 	}
 	
 }
